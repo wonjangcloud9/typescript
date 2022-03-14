@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import {
   useLocation,
@@ -153,6 +152,7 @@ function Coin() {
     () => fetchCoinTickers(coinId!)
   );
   const loading = infoLoading || tickersLoading;
+
   return (
     <Container>
       <Header>
@@ -197,11 +197,12 @@ function Coin() {
               <Link to={`/${coinId}/price`}>Price</Link>
             </Tab>
           </Tabs>
-          <Outlet />
+
           <Routes>
             <Route path="price" element={<Price />} />
             <Route path="chart" element={<Chart />} />
           </Routes>
+          <Outlet context={{ coinId }} />
         </>
       )}
     </Container>
