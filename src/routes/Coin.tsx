@@ -173,6 +173,9 @@ function Coin() {
         <Loader>Loading...</Loader>
       ) : (
         <>
+          <div>
+            <Link to={"/"}>뒤로가기</Link>
+          </div>
           <Overview>
             <OverviewItem>
               <span>Rank:</span>
@@ -184,7 +187,7 @@ function Coin() {
             </OverviewItem>
             <OverviewItem>
               <span>Price:</span>
-              <span>{tickersData?.quotes.USD.price}</span>
+              <span>{tickersData?.quotes?.USD?.price?.toFixed(3)}</span>
             </OverviewItem>
           </Overview>
           <Description>{infoData?.description}</Description>
